@@ -1,0 +1,119 @@
+@use "@angular/material" as mat;
+@import "variables";
+
+@include mat.core();
+
+$custom-primary: (
+  50: $primary,
+  100: $primary,
+  200: $primary,
+  300: $primary,
+  400: $primary,
+  500: $primary,
+  600: $primary,
+  700: $primary,
+  800: $primary,
+  900: $primary,
+  A100: $primary,
+  A200: $primary,
+  A400: $primary,
+  A700: $primary,
+  contrast: (
+    50: $primary-foreground,
+    100: $primary-foreground,
+    200: $primary-foreground,
+    300: $primary-foreground,
+    400: $primary-foreground,
+    500: $primary-foreground,
+    600: $primary-foreground,
+    700: $primary-foreground,
+    800: $primary-foreground,
+    900: $primary-foreground,
+    A100: $primary-foreground,
+    A200: $primary-foreground,
+    A400: $primary-foreground,
+    A700: $primary-foreground,
+  ),
+);
+
+$custom-accent: (
+  50: $accent,
+  100: $accent,
+  200: $accent,
+  300: $accent,
+  400: $accent,
+  500: $accent,
+  600: $accent,
+  700: $accent,
+  800: $accent,
+  900: $accent,
+  A100: $accent,
+  A200: $accent,
+  A400: $accent,
+  A700: $accent,
+  contrast: (
+    50: $accent-foreground,
+    100: $accent-foreground,
+    200: $accent-foreground,
+    300: $accent-foreground,
+    400: $accent-foreground,
+    500: $accent-foreground,
+    600: $accent-foreground,
+    700: $accent-foreground,
+    800: $accent-foreground,
+    900: $accent-foreground,
+    A100: $accent-foreground,
+    A200: $accent-foreground,
+    A400: $accent-foreground,
+    A700: $accent-foreground,
+  ),
+);
+
+$custom-warn: (
+  50: $warn,
+  100: $warn,
+  200: $warn,
+  300: $warn,
+  400: $warn,
+  500: $warn,
+  600: $warn,
+  700: $warn,
+  800: $warn,
+  900: $warn,
+  A100: $warn,
+  A200: $warn,
+  A400: $warn,
+  A700: $warn,
+  contrast: (
+    50: $warn-foreground,
+    100: $warn-foreground,
+    200: $warn-foreground,
+    300: $warn-foreground,
+    400: $warn-foreground,
+    500: $warn-foreground,
+    600: $warn-foreground,
+    700: $warn-foreground,
+    800: $warn-foreground,
+    900: $warn-foreground,
+    A100: $warn-foreground,
+    A200: $warn-foreground,
+    A400: $warn-foreground,
+    A700: $warn-foreground,
+  ),
+);
+
+$custom-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: mat.define-palette($custom-primary),
+      accent: mat.define-palette($custom-accent),
+      warn: mat.define-palette($custom-warn),
+      background: base-palette($background),
+      foreground: base-palette($background-foreground),
+    ),
+    typography: mat.define-typography-config(),
+    density: 0,
+  )
+);
+
+@include mat.all-component-themes($custom-theme);
