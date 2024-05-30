@@ -1,0 +1,13 @@
+@import "variables";
+
+.toolabar {
+  position: sticky;
+  z-index: 99;
+
+  background-color: transparent;
+  padding: 40px 0;
+  .logo {
+    color: $warn;
+    font-size: 1.5rem;
+  }
+}
