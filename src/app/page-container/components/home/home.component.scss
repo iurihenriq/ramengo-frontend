@@ -17,6 +17,7 @@ main {
     background-repeat: no-repeat;
     background-position: center;
   }
+
   .home {
     display: flex;
     flex-direction: column;
@@ -141,5 +142,9 @@ main {
         }
       }
     }
+  }
+
+  .order {
+    height: 100vh;
   }
 }
