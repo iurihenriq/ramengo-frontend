@@ -1,0 +1,21 @@
+@import "variables";
+
+main {
+  position: static;
+  max-width: 1140px;
+  margin: 0 auto;
+
+  .background {
+    max-width: 100%;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 30vh;
+    background-image: url("/assets/imgs/background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}

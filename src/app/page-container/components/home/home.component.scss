@@ -1,150 +1,127 @@
 @import "variables";
 
-main {
-  position: static;
-  max-width: 1140px;
-  margin: 0 auto;
-
-  .background {
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 30vh;
-    background-image: url("/assets/imgs/background.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-
-  .home {
+.home {
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px 30px 0 0;
+  background-color: $background;
+  height: calc(100vh - 80px);
+  .presentation-container {
+    box-sizing: border-box;
+    padding: 70px;
+    gap: 35px;
     display: flex;
-    flex-direction: column;
-    border-radius: 30px 30px 0 0;
-    background-color: $background;
-    height: calc(100vh - 80px);
-    .presentation-container {
-      box-sizing: border-box;
-      padding: 70px;
-      gap: 35px;
+
+    .presentation-infos {
       display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
 
-      .presentation-infos {
+      p {
+        letter-spacing: 0.1rem;
+        max-width: 900px;
+        line-height: 1.1;
+        color: $background-foreground;
+        font-weight: 500;
+        font-size: 2.5rem;
+      }
+
+      button {
+        border-radius: 15px;
+        height: auto;
+        padding: 20px 15px;
+        text-transform: uppercase;
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row-reverse;
         justify-content: space-between;
+        width: 50%;
+
+        mat-icon {
+          margin: 0;
+          color: $warn;
+        }
+      }
+
+      .metrics {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         gap: 20px;
-
-        p {
-          letter-spacing: 0.1rem;
-          max-width: 900px;
-          line-height: 1.1;
-          color: $background-foreground;
-          font-weight: 500;
-          font-size: 2.5rem;
-        }
-
-        button {
-          border-radius: 15px;
-          height: auto;
-          padding: 20px 15px;
-          text-transform: uppercase;
-          display: flex;
-          flex-direction: row-reverse;
-          justify-content: space-between;
-          width: 50%;
-
-          mat-icon {
-            margin: 0;
-            color: $warn;
-          }
-        }
-
-        .metrics {
-          width: 100%;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          gap: 20px;
-          div {
-            p {
-              &:first-child {
-                font-size: 2rem;
-                color: $background-foreground;
-              }
-              &:last-child {
-                font-size: 0.9rem;
-                font-weight: 300;
-                font-family: "Red Hat Display", sans-serif;
-              }
+        div {
+          p {
+            &:first-child {
+              font-size: 2rem;
+              color: $background-foreground;
+            }
+            &:last-child {
+              font-size: 0.9rem;
+              font-weight: 300;
+              font-family: "Red Hat Display", sans-serif;
             }
           }
         }
       }
+    }
 
-      .circle-background {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-image: url("/assets/imgs/circle.svg");
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
+    .circle-background {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url("/assets/imgs/circle.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
 
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .cards-container {
+    box-sizing: border-box;
+    padding: 0 70px 35px;
+    flex-grow: 1;
+
+    display: flex;
+    gap: 20px;
+    height: auto;
+    flex-wrap: wrap;
+
+    .card {
+      gap: 10px;
+      min-width: 150px;
+      box-sizing: border-box;
+      flex: 1;
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      background-color: rgba($primary, 0.3);
+      padding: 20px;
+
+      .card-image-background {
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
         img {
           width: 100%;
         }
       }
-    }
-    .cards-container {
-      box-sizing: border-box;
-      padding: 0 70px 35px;
-      flex-grow: 1;
 
-      display: flex;
-      gap: 20px;
-      height: auto;
-      flex-wrap: wrap;
-
-      .card {
-        gap: 10px;
-        min-width: 150px;
-        box-sizing: border-box;
-        flex: 1;
-        border-radius: 15px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: space-between;
-        background-color: rgba($primary, 0.3);
-        padding: 20px;
-
-        .card-image-background {
-          background-color: #fff;
-          padding: 10px;
-          border-radius: 50%;
-          width: 30px;
-          height: 30px;
-          img {
-            width: 100%;
-          }
-        }
-
-        p {
-          font-size: 0.9rem;
-          color: $background-foreground;
-          &:last-child {
-            font-weight: 300;
-            font-family: "Red Hat Display", sans-serif;
-          }
+      p {
+        font-size: 0.9rem;
+        color: $background-foreground;
+        &:last-child {
+          font-weight: 300;
+          font-family: "Red Hat Display", sans-serif;
         }
       }
     }
-  }
-
-  .order {
-    height: 100vh;
   }
 }

@@ -1,1 +1,18 @@
-<p>order works!</p>
+<section class="order">
+  <div>
+    <p>First things first: select your favorite broth.</p>
+    <p>It will give the whole flavor on your ramen soup.</p>
+    <div>
+      @for (protein of proteins; track $index) {
+      <div>
+        <img [src]="protein.imageActive" [alt]="protein.name">
+        <p>{{protein.name}}</p>
+        <p>{{protein.description}}</p>
+        <div>
+          <p>{{protein.price}}</p><mat-icon>ligature</mat-icon>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</section>
