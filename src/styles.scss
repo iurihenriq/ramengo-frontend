@@ -1,6 +1,6 @@
 @import "variables";
 @import "custom-theme";
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Red+Rose:wght@300..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Red+Rose:wght@300..700&display=swap");
 
 html,
 body {
@@ -9,6 +9,7 @@ body {
   margin: 0;
   height: 100%;
   background-color: $background;
+  color: $background-foreground;
 }
 
 * {
@@ -16,6 +17,32 @@ body {
   margin: 0;
 }
 
+p {
+  line-height: 1;
+}
+
+button:disabled {
+  opacity: 0.2;
+}
+
 .warn-color {
   color: $warn;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $warn transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $warn;
+  border-radius: 20px;
 }

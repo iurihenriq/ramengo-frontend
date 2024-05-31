@@ -19,16 +19,17 @@
       justify-content: space-between;
       gap: 20px;
 
-      p {
+      .highlight-text {
         letter-spacing: 0.1rem;
         max-width: 900px;
         line-height: 1.1;
-        color: $background-foreground;
         font-weight: 500;
-        font-size: 2.5rem;
+        font-size: $font-size-large;
       }
 
-      button {
+      .order-button {
+        color: $background;
+        background-color: $accent;
         border-radius: 15px;
         height: auto;
         padding: 20px 15px;
@@ -53,11 +54,10 @@
         div {
           p {
             &:first-child {
-              font-size: 2rem;
-              color: $background-foreground;
+              font-size: $font-size-medium;
             }
             &:last-child {
-              font-size: 0.9rem;
+              font-size: $font-size-small;
               font-weight: 300;
               font-family: "Red Hat Display", sans-serif;
             }
@@ -115,7 +115,7 @@
       }
 
       p {
-        font-size: 0.9rem;
+        font-size: $font-size-small;
         color: $background-foreground;
         &:last-child {
           font-weight: 300;

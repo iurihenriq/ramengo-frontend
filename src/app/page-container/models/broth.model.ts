@@ -5,4 +5,5 @@ export interface Broth {
   name: string;
   description: string;
   price: number;
+  active: boolean;
 }

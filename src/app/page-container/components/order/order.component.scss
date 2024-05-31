@@ -2,4 +2,133 @@
 
 .order {
   height: 100vh;
+  padding: 0 70px;
+  display: flex;
+  flex-direction: column;
+
+  .button-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .order-button {
+      color: $background;
+      background-color: $accent;
+      border-radius: 15px;
+      height: auto;
+      padding: 20px 15px;
+      text-transform: uppercase;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      width: 50%;
+
+      mat-icon {
+        margin: 0;
+        color: $warn;
+      }
+    }
+  }
+
+  .background {
+    background-color: rgba($primary, 0.3);
+    border-radius: 0 0 0 20%;
+    max-width: 100%;
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+  }
+
+  .proteins,
+  .broths {
+    padding-top: 35px;
+    .title,
+    .subtitle {
+      width: 100%;
+      text-align: center;
+      line-height: 1.1;
+    }
+    .title {
+      font-size: $font-size-medium;
+    }
+    .subtitle {
+      font-weight: 300;
+      font-family: "Red Hat Display", sans-serif;
+    }
+    .cards-container {
+      padding-top: 35px;
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      .card {
+        cursor: pointer;
+        min-width: 200px;
+        flex: 1 1 auto;
+        transition: 0.2s ease;
+        gap: 20px;
+        border-radius: 15px;
+        justify-content: space-between;
+        background-color: $background;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        img {
+          max-height: 70px;
+        }
+        .name,
+        .price {
+          text-align: center;
+          font-size: $font-size-medium;
+        }
+        .price {
+          color: $primary;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          span {
+            width: 30px;
+            height: 30px;
+            background-color: $accent;
+            color: $background;
+            border-radius: 5px;
+
+            mat-icon {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 30px;
+              height: 30px;
+            }
+          }
+        }
+        .description {
+          font-size: $font-size-small;
+          font-weight: 300;
+          font-family: "Red Hat Display", sans-serif;
+        }
+
+        &:hover,
+        &.active {
+          background-color: $accent;
+          .name,
+          .description {
+            color: $background;
+          }
+          .price {
+            color: $warn;
+            span {
+              background-color: $warn;
+              color: $accent;
+            }
+          }
+        }
+      }
+    }
+  }
 }
