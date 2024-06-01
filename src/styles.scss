@@ -20,6 +20,18 @@ body {
 p {
   line-height: 1;
 }
+.main-snackbar {
+  .mdc-snackbar__surface{
+    background-color:$primary !important;
+    color: $background !important;
+  }
+  .mat-mdc-snack-bar-actions{
+    button{
+      background-color: $background !important;
+      color: $primary !important;
+    }
+  }
+}
 
 button:disabled {
   opacity: 0.2;

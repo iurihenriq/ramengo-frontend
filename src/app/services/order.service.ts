@@ -9,6 +9,11 @@ import { Injectable, WritableSignal, signal } from '@angular/core';
 export class OrderService {
   url: string = `${environment.apiUrl}/orders`;
   orderForm = signal<IOrderForm | null>(null);
+  orderResponse = signal<IOrderResponse>({
+    description: '',
+    id: '',
+    image: ''
+  });
 
   constructor(private http: HttpClient) {}
 
@@ -20,11 +25,19 @@ export class OrderService {
     this.orderForm.set(null);
   }
 
-  setOrder(order: IOrderForm) {
+  setOrderForm(order: IOrderForm) {
     this.orderForm.set(order);
   }
 
-  getOrder() {
+  getOrderForm() {
     return this.orderForm();
+  }
+
+  setOrderResponse(order: IOrderResponse) {
+    this.orderResponse.set(order);
+  }
+
+  getOrderResponse() {
+    return this.orderResponse
   }
 }

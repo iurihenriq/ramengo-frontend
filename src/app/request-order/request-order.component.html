@@ -2,6 +2,17 @@
   <app-toolbar />
   <div class="background"></div>
   <section class="container">
-    <img [src]="teste" alt="">
+    <div class="order">
+      <p class="id">Order ID: {{orderResponse.id}}</p>
+      <div class="image" [style.background-image]="orderResponse.image"></div>
+      <p class="description">{{orderResponse.description}}</p>
+    </div>
+    <div class="grateful-container"><img src="/assets/imgs/grateful.png" alt="">
+      <p>どもありがとうございます。</p>
+      <button routerLink="" class="order-button" mat-flat-button>
+        <span>Place new order</span>
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
   </section>
 </main>

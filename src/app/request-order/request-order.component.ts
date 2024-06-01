@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToolbarComponent } from '../shared/components/toolbar/toolbar.component';
 import { SharedModule } from '../shared/shared.module';
 import { OrderService } from '../services/order.service';
+import { IOrderResponse } from '../models/order.model';
 
 @Component({
   selector: 'app-request-order',
@@ -11,18 +12,12 @@ import { OrderService } from '../services/order.service';
   styleUrl: './request-order.component.scss',
 })
 export class RequestOrderComponent implements OnInit {
-  teste: string = ''
   constructor(private orderService: OrderService) {}
+
+  orderResponse!: IOrderResponse;
   ngOnInit(): void {
-    const order = this.orderService.getOrder()!;
-    this.orderService.placeOrder(order).subscribe({
-      next: (response) => {
-        this.teste = response.image
-        console.log(response);
-      },
-      error: (err) => {
-        // Trate os erros adequadamente
-      },
-    });
+    this.orderResponse = this.orderService.getOrderResponse()();
+    this.orderResponse.image =
+      'url(' + this.orderResponse.image.replace(/\s/g, '%20') + ')';
   }
 }

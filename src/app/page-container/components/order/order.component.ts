@@ -8,6 +8,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { OrderService } from '../../../services/order.service';
 import { IOrderForm } from '../../../models/order.model';
 import { Router } from '@angular/router';
+import { finalize } from 'rxjs';
+import { SnackBarService } from '../../../shared/services/snack-bar.service';
 
 @Component({
   selector: 'app-order',
@@ -19,6 +21,9 @@ import { Router } from '@angular/router';
 export class OrderComponent implements OnInit {
   proteins: IProtein[] = [];
   broths: IBroth[] = [];
+  proteinsFetched: boolean = false;
+  brothsFetched: boolean = false;
+  sendingRequest: boolean = false;
   orderForm = this.formBuilder.group({
     brothId: ['', Validators.required],
     proteinId: ['', Validators.required],
@@ -29,7 +34,8 @@ export class OrderComponent implements OnInit {
     private brothService: BrothService,
     private formBuilder: FormBuilder,
     private orderService: OrderService,
-    private router: Router
+    private router: Router,
+    private snackService: SnackBarService
   ) {}
 
   ngOnInit(): void {
@@ -38,26 +44,37 @@ export class OrderComponent implements OnInit {
   }
 
   private getAllProteins() {
-    this.proteinService.getAllProteins().subscribe({
-      next: (response) => {
-        this.proteins = response;
-      },
-      error: (error) => {},
-    });
+    this.proteinService
+      .getAllProteins()
+      .pipe(finalize(() => (this.proteinsFetched = true)))
+      .subscribe({
+        next: (response) => {
+          this.proteins = response;
+        },
+        error: (error) => {
+          this.snackService.openSnackBar('error when searching for proteins');
+        },
+      });
   }
 
   private getAllBroths() {
-    this.brothService.getAllBroths().subscribe({
-      next: (response) => {
-        this.broths = response;
-      },
-      error: (error) => {},
-    });
+    this.brothService
+      .getAllBroths()
+      .pipe(finalize(() => (this.brothsFetched = true)))
+      .subscribe({
+        next: (response) => {
+          this.broths = response;
+        },
+        error: (error) => {
+          this.snackService.openSnackBar('error when searching for broths');
+        },
+      });
   }
 
   setOrder() {
+    this.sendingRequest = true;
     const orderFormValue = this.orderForm.value as IOrderForm;
-    this.orderService.setOrder(orderFormValue);
+    this.orderService.setOrderForm(orderFormValue);
     this.router.navigate(['/order']);
   }
 

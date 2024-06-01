@@ -44,6 +44,10 @@
   .proteins,
   .broths {
     padding-top: 35px;
+    mat-spinner {
+      margin: 35px auto;
+    }
+
     .title,
     .subtitle {
       width: 100%;
