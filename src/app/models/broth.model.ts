@@ -1,4 +1,4 @@
-export interface Broth {
+export interface IBroth {
   id: string;
   imageInactive: string;
   imageActive: string;

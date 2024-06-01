@@ -1,11 +1,10 @@
-export interface OrderResponse {
+export interface IOrderResponse {
   id: string;
   description: string;
   image: string;
 }
 
-export interface OrderRequest {
+export interface IOrderForm {
   brothId: string;
   proteinId: string;
 }
-

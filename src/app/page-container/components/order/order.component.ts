@@ -1,10 +1,13 @@
+import { BrothService } from '../../../services/broth.service';
 import { Component, OnInit } from '@angular/core';
 import { SharedModule } from '../../../shared/shared.module';
-import { Protein } from '../../models/protein.model';
-import { ProteinService } from '../../services/protein.service';
-import { Broth } from '../../models/broth.model';
-import { BrothService } from '../../services/broth.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { IProtein } from '../../../models/protein.model';
+import { ProteinService } from '../../../services/protein.service';
+import { IBroth } from '../../../models/broth.model';
+import { FormBuilder, Validators } from '@angular/forms';
+import { OrderService } from '../../../services/order.service';
+import { IOrderForm } from '../../../models/order.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order',
@@ -14,9 +17,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrl: './order.component.scss',
 })
 export class OrderComponent implements OnInit {
-  proteins: Protein[] = [];
-  broths: Broth[] = [];
-  orderRequest = this.formBuilder.group({
+  proteins: IProtein[] = [];
+  broths: IBroth[] = [];
+  orderForm = this.formBuilder.group({
     brothId: ['', Validators.required],
     proteinId: ['', Validators.required],
   });
@@ -24,7 +27,9 @@ export class OrderComponent implements OnInit {
   constructor(
     private proteinService: ProteinService,
     private brothService: BrothService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private orderService: OrderService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -50,19 +55,25 @@ export class OrderComponent implements OnInit {
     });
   }
 
-  selectProtein(protein: Protein) {
-    this.orderRequest.controls['proteinId'].patchValue(protein.id);
+  setOrder() {
+    const orderFormValue = this.orderForm.value as IOrderForm;
+    this.orderService.setOrder(orderFormValue);
+    this.router.navigate(['/order']);
   }
 
-  selectedProtein(protein: Protein) {
-    return this.orderRequest.controls['proteinId'].value === protein.id;
+  selectProtein(protein: IProtein) {
+    this.orderForm.controls['proteinId'].patchValue(protein.id);
   }
 
-  selectBroth(broth: Broth) {
-    this.orderRequest.controls['brothId'].patchValue(broth.id);
+  selectedProtein(protein: IProtein) {
+    return this.orderForm.controls['proteinId'].value === protein.id;
   }
 
-  selectedBroth(broth: Broth) {
-    return this.orderRequest.controls['brothId'].value === broth.id;
+  selectBroth(broth: IBroth) {
+    this.orderForm.controls['brothId'].patchValue(broth.id);
+  }
+
+  selectedBroth(broth: IBroth) {
+    return this.orderForm.controls['brothId'].value === broth.id;
   }
 }

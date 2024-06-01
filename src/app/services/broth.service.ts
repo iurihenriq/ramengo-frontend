@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Broth } from '../models/broth.model';
+import { IBroth } from '../models/broth.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,7 +12,7 @@ export class BrothService {
 
   constructor(private http: HttpClient) {}
 
-  getAllBroths(): Observable<Broth[]> {
-    return this.http.get<Broth[]>(this.url);
+  getAllBroths(): Observable<IBroth[]> {
+    return this.http.get<IBroth[]>(this.url);
   }
 }

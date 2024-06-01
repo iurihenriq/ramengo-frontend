@@ -1,4 +1,4 @@
-export interface Protein {
+export interface IProtein {
   id: string;
   imageInactive: string;
   imageActive: string;

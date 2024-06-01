@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { SharedModule } from '../../../shared/shared.module';
 
 @Component({
@@ -8,4 +8,10 @@ import { SharedModule } from '../../../shared/shared.module';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {}
+export class HomeComponent {
+  @Output() scrollToOrder: EventEmitter<any> = new EventEmitter();
+
+  scroll(): void {
+    this.scrollToOrder.emit();
+  }
+}

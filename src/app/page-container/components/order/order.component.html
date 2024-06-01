@@ -33,7 +33,7 @@
     </div>
   </div>
   <div class="button-container">
-    <button class="order-button" mat-flat-button [disabled]="this.orderRequest.invalid">
+    <button class="order-button" mat-flat-button [disabled]="this.orderForm.invalid" (click)="setOrder()">
       <span>Order now</span>
       <mat-icon>chevron_right</mat-icon>
     </button>

@@ -1,6 +1,6 @@
 <main>
   <app-toolbar />
   <div class="background"></div>
-  <app-home />
-  <app-order />
+  <app-home (scrollToOrder)="scrollToOrder()"></app-home>
+  <app-order id="order"></app-order>
 </main>
