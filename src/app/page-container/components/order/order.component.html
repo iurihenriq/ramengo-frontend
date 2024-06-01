@@ -10,7 +10,7 @@
         <p class="name">{{broth.name}}</p>
         <p class="description">{{broth.description}}</p>
         <div class="price">
-          <p>${{broth.price}}</p><span><mat-icon>add</mat-icon></span>
+          <p>${{broth.price}}</p><span><mat-icon>{{selectedBroth(broth) ? 'done' : 'add'}}</mat-icon></span>
         </div>
       </div>
       }
@@ -26,14 +26,14 @@
         <p class="name">{{protein.name}}</p>
         <p class="description">{{protein.description}}</p>
         <div class="price">
-          <p>${{protein.price}}</p><span><mat-icon>add</mat-icon></span>
+          <p>${{protein.price}}</p><span><mat-icon>{{selectedProtein(protein) ? 'done' : 'add'}}</mat-icon></span>
         </div>
       </div>
       }
     </div>
   </div>
   <div class="button-container">
-    <button class="order-button" mat-flat-button [disabled]="!isSelectionComplete()">
+    <button class="order-button" mat-flat-button [disabled]="this.orderRequest.invalid">
       <span>Order now</span>
       <mat-icon>chevron_right</mat-icon>
     </button>

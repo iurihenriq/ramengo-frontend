@@ -5,8 +5,9 @@
   flex-direction: column;
   border-radius: 30px 30px 0 0;
   background-color: $background;
-  height: calc(100vh - 80px);
+  min-height: calc(100vh - 80px);
   .presentation-container {
+    flex: 1;
     box-sizing: border-box;
     padding: 70px;
     gap: 35px;
@@ -120,6 +121,72 @@
         &:last-child {
           font-weight: 300;
           font-family: "Red Hat Display", sans-serif;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1140px) {
+  .home {
+    .presentation-container {
+      padding: 35px;
+    }
+    .cards-container {
+      padding: 0 35px 35px;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .home {
+    .presentation-container {
+      .presentation-infos {
+        flex: 1;
+        .highlight-text {
+          font-size: $font-size-medium;
+        }
+      }
+    }
+    .cards-container {
+      padding: 0 35px 35px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .home {
+    .presentation-container {
+      flex-direction: column-reverse;
+      .circle-background {
+        height: 300px;
+        img {
+          width: auto;
+          height: 100%;
+        }
+      }
+    }
+    .cards-container {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .home {
+    .presentation-container {
+      .presentation-infos {
+        .highlight-text {
+          font-size: 1.8rem;
+        }
+        .metrics {
+          div {
+            p {
+              &:first-child {
+                font-size: 1.3rem;
+              }
+            }
+          }
         }
       }
     }

@@ -65,8 +65,4 @@ export class OrderComponent implements OnInit {
   selectedBroth(broth: Broth) {
     return this.orderRequest.controls['brothId'].value === broth.id;
   }
-
-  isSelectionComplete() {
-    return this.orderRequest.valid;
-  }
 }

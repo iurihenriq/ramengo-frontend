@@ -1,7 +1,7 @@
 @import "variables";
 
 .order {
-  height: 100vh;
+  min-height: 100vh;
   padding: 0 70px;
   display: flex;
   flex-direction: column;
@@ -108,6 +108,7 @@
           }
         }
         .description {
+          text-align: center;
           font-size: $font-size-small;
           font-weight: 300;
           font-family: "Red Hat Display", sans-serif;
@@ -126,6 +127,53 @@
               background-color: $warn;
               color: $accent;
             }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1140px) {
+  .order {
+    padding: 0 35px;
+    position: relative;
+
+    .button-container {
+      padding: 35px 0;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .order {
+    .proteins,
+    .broths {
+      .title {
+        font-size: $font-size-medium;
+      }
+      .subtitle {
+        font-size: $font-size-small;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .order {
+    .proteins,
+    .broths {
+      .title {
+        font-size: 1.8rem;
+      }
+      .cards-container {
+        .card {
+          .name,
+          .price {
+            font-size: 1.8rem;
+          }
+          .description {
+            font-size: $font-size-small;
           }
         }
       }
