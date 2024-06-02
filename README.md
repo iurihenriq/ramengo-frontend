@@ -1,27 +1,36 @@
-# RamenGoFrontend
+# RamenGo Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
+Welcome to the RamenGo Frontend! This Angular project consumes the RamenGo API to provide users with a delightful experience of crafting custom ramen orders.
 
-## Development server
+## Table of Contents
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- [Deployment](#deployment)
+- [Features](#features)
+- [Usage](#usage)
+- [License](#license)
+- [Contact](#contact)
+  
+## Deployment
 
-## Code scaffolding
+The RamenGo Frontend is deployed on Vercel and can be accessed at [https://ramengo-frontend.vercel.app](https://ramengo-frontend.vercel.app).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Features
 
-## Build
+- Browse available broths and proteins for your ramen order.
+- Place custom orders by selecting your preferred broth and protein combination.
+- Enjoy a responsive and intuitive user interface.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Usage
 
-## Running unit tests
+1. Access [https://ramengo-frontend.vercel.app](https://ramengo-frontend.vercel.app) in your browser.
+2. Browse through the available broths and proteins.
+3. Select your desired options to create your custom ramen order.
+4. Place your order and receive a confirmation.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## License
 
-## Running end-to-end tests
+This project is licensed under the MIT License.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Contact
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+For any inquiries or issues, please contact [iurinhg2@gmail.com](mailto:iurinhg2@gmail.com).

@@ -1,6 +1,5 @@
 @import "variables";
 
-
 .background-container {
   position: relative;
   .background {
@@ -15,7 +14,7 @@
 }
 
 .order {
-  min-height: 100dvh;
+  min-height: 100vh;
   padding: 0 70px;
   display: flex;
   flex-direction: column;
