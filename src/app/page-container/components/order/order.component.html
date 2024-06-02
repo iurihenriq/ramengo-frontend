@@ -42,7 +42,7 @@
       }
     </div>
     <div class="button-container">
-      <p>Total: ${{(getSelectedProtein().price + getSelectedBroth().price) || 0}}</p>
+      <p>Total: ${{ (getSelectedProtein().price || 0) + (getSelectedBroth().price || 0) || 0 }}</p>
       <button class="order-button" mat-flat-button [disabled]="this.orderForm.invalid || sendingRequest" (click)="setOrder()">
         <span>Order now</span>
         <mat-icon>chevron_right</mat-icon>
