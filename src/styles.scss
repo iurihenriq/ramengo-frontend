@@ -1,6 +1,5 @@
 @import "variables";
 @import "custom-theme";
-@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Red+Rose:wght@300..700&display=swap");
 
 html,
 body {
@@ -20,6 +19,7 @@ body {
 p {
   line-height: 1;
 }
+
 .main-snackbar {
   .mdc-snackbar__surface{
     background-color:$primary !important;
