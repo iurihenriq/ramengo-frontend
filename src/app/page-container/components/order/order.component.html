@@ -1,49 +1,52 @@
-<section class="order">
+<div class="background-container">
   <div class="background"></div>
-  <div class="proteins">
-    <p class="title">First things first: select your favorite broth</p>
-    <p class="subtitle">It will give the whole flavor on your ramen soup</p>
-    @if (!brothsFetched) {
-    <mat-spinner></mat-spinner>
-    } @else {
-    <div class="cards-container">
-      @for (broth of broths; track $index) {
-      <div class="card" (mouseenter)="broth.active = true" (mouseleave)="broth.active = false" (click)="selectBroth(broth)" [ngClass]="{'active':selectedBroth(broth)}">
-        <img [src]="(broth.active || selectedBroth(broth))? broth.imageActive : broth.imageInactive" [alt]="broth.name">
-        <p class="name">{{broth.name}}</p>
-        <p class="description">{{broth.description}}</p>
-        <div class="price">
-          <p>${{broth.price}}</p><span><mat-icon>{{selectedBroth(broth) ? 'done' : 'add'}}</mat-icon></span>
+  <section class="order">
+    <div class="proteins">
+      <p class="title">First things first: select your favorite broth</p>
+      <p class="subtitle">It will give the whole flavor on your ramen soup</p>
+      @if (!brothsFetched) {
+      <mat-spinner></mat-spinner>
+      } @else {
+      <div class="cards-container">
+        @for (broth of broths; track $index) {
+        <div class="card" (mouseenter)="broth.active = true" (mouseleave)="broth.active = false" (click)="selectBroth(broth)" [ngClass]="{'active':selectedBroth(broth)}">
+          <img [src]="(broth.active || selectedBroth(broth))? broth.imageActive : broth.imageInactive" [alt]="broth.name">
+          <p class="name">{{broth.name}}</p>
+          <p class="description">{{broth.description}}</p>
+          <div class="price">
+            <p>${{broth.price}}</p><span><mat-icon>{{selectedBroth(broth) ? 'done' : 'add'}}</mat-icon></span>
+          </div>
         </div>
+        }
       </div>
       }
     </div>
-    }
-  </div>
-  <div class="broths">
-    <p class="title">It’s time to choose (or not) your protein</p>
-    <p class="subtitle">Some people love, some don’t. We have options for all tastes</p>
-    @if (!proteinsFetched) {
-    <mat-spinner></mat-spinner>
-    } @else {
-    <div class="cards-container">
-      @for (protein of proteins; track $index) {
-      <div class="card" (mouseenter)="protein.active = true" (mouseleave)="protein.active = false" (click)="selectProtein(protein)" [ngClass]="{'active':selectedProtein(protein)}">
-        <img [src]="(protein.active || selectedProtein(protein)) ? protein.imageActive : protein.imageInactive" [alt]="protein.name">
-        <p class="name">{{protein.name}}</p>
-        <p class="description">{{protein.description}}</p>
-        <div class="price">
-          <p>${{protein.price}}</p><span><mat-icon>{{selectedProtein(protein) ? 'done' : 'add'}}</mat-icon></span>
+    <div class="broths">
+      <p class="title">It’s time to choose (or not) your protein</p>
+      <p class="subtitle">Some people love, some don’t. We have options for all tastes</p>
+      @if (!proteinsFetched) {
+      <mat-spinner></mat-spinner>
+      } @else {
+      <div class="cards-container">
+        @for (protein of proteins; track $index) {
+        <div class="card" (mouseenter)="protein.active = true" (mouseleave)="protein.active = false" (click)="selectProtein(protein)" [ngClass]="{'active':selectedProtein(protein)}">
+          <img [src]="(protein.active || selectedProtein(protein)) ? protein.imageActive : protein.imageInactive" [alt]="protein.name">
+          <p class="name">{{protein.name}}</p>
+          <p class="description">{{protein.description}}</p>
+          <div class="price">
+            <p>${{protein.price}}</p><span><mat-icon>{{selectedProtein(protein) ? 'done' : 'add'}}</mat-icon></span>
+          </div>
         </div>
+        }
       </div>
       }
     </div>
-    }
-  </div>
-  <div class="button-container">
-    <button class="order-button" mat-flat-button [disabled]="this.orderForm.invalid || sendingRequest" (click)="setOrder()">
-      <span>Order now</span>
-      <mat-icon>chevron_right</mat-icon>
-    </button>
-  </div>
-</section>
+    <div class="button-container">
+      <p>Total: ${{(getSelectedProtein().price + getSelectedBroth().price) || 0}}</p>
+      <button class="order-button" mat-flat-button [disabled]="this.orderForm.invalid || sendingRequest" (click)="setOrder()">
+        <span>Order now</span>
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+  </section>
+</div>

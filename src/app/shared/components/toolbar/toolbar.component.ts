@@ -16,6 +16,8 @@ import { SharedModule } from '../../shared.module';
 .toolbar {
   background-color: transparent;
   padding: 40px 0;
+  max-width: 1140px;
+  margin: 0 auto;
 
   .logo {
     color: $warn;

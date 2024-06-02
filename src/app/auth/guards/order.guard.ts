@@ -24,7 +24,11 @@ export class OrderGuard implements CanActivate {
           return true;
         }),
         catchError((error) => {
-          this.snackService.openSnackBar('error when sending the order');
+          if (error.status === 400) {
+            this.snackService.openSnackBar('both and protein are required');
+          } else {
+            this.snackService.openSnackBar('could not place order');
+          }
           return of(this.router.createUrlTree(['']));
         })
       );

@@ -4,7 +4,7 @@ import { SharedModule } from '../../../shared/shared.module';
 import { IProtein } from '../../../models/protein.model';
 import { ProteinService } from '../../../services/protein.service';
 import { IBroth } from '../../../models/broth.model';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { OrderService } from '../../../services/order.service';
 import { IOrderForm } from '../../../models/order.model';
 import { Router } from '@angular/router';
@@ -25,8 +25,8 @@ export class OrderComponent implements OnInit {
   brothsFetched: boolean = false;
   sendingRequest: boolean = false;
   orderForm = this.formBuilder.group({
-    brothId: ['', Validators.required],
-    proteinId: ['', Validators.required],
+    broth: [new FormControl(), Validators.required],
+    protein: [new FormControl(), Validators.required],
   });
 
   constructor(
@@ -73,24 +73,41 @@ export class OrderComponent implements OnInit {
 
   setOrder() {
     this.sendingRequest = true;
-    const orderFormValue = this.orderForm.value as IOrderForm;
+
+    const selectedProtein = this.getSelectedProtein();
+    const selectedBroth = this.getSelectedBroth();
+    const orderFormValue = {
+      brothId: selectedBroth.id,
+      proteinId: selectedProtein.id,
+    } as IOrderForm;
+
     this.orderService.setOrderForm(orderFormValue);
     this.router.navigate(['/order']);
   }
 
+  getSelectedBroth() {
+    return this.orderForm.controls['broth'].value as IBroth;
+  }
+
+  getSelectedProtein() {
+    return this.orderForm.controls['protein'].value as IProtein;
+  }
+
   selectProtein(protein: IProtein) {
-    this.orderForm.controls['proteinId'].patchValue(protein.id);
+    this.orderForm.controls['protein'].patchValue(protein);
   }
 
   selectedProtein(protein: IProtein) {
-    return this.orderForm.controls['proteinId'].value === protein.id;
+    const selectedProtein = this.getSelectedProtein();
+    return selectedProtein.id === protein.id;
   }
 
   selectBroth(broth: IBroth) {
-    this.orderForm.controls['brothId'].patchValue(broth.id);
+    this.orderForm.controls['broth'].patchValue(broth);
   }
 
   selectedBroth(broth: IBroth) {
-    return this.orderForm.controls['brothId'].value === broth.id;
+    const selectedBroth = this.getSelectedBroth();
+    return selectedBroth.id === broth.id;
   }
 }

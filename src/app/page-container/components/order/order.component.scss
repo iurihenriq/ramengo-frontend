@@ -1,16 +1,33 @@
 @import "variables";
 
+
+.background-container {
+  position: relative;
+  .background {
+    background-color: rgba($primary, 0.3);
+    max-width: 100%;
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+  }
+}
+
 .order {
-  min-height: 100vh;
+  min-height: 100dvh;
   padding: 0 70px;
   display: flex;
   flex-direction: column;
+  max-width: 1140px;
+  box-sizing: border-box;
+  margin: 0 auto;
 
   .button-container {
-    flex: 1;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 35px 0;
     .order-button {
       color: $background;
       background-color: $accent;
@@ -28,21 +45,14 @@
         color: $warn;
       }
     }
-  }
-
-  .background {
-    background-color: rgba($primary, 0.3);
-    border-radius: 0 0 0 20%;
-    max-width: 100%;
-    position: absolute;
-    z-index: -1;
-    left: 0;
-    width: 100vw;
-    height: 100%;
+    p {
+      font-size: 2rem;
+    }
   }
 
   .proteins,
   .broths {
+    flex: 1;
     padding-top: 35px;
     mat-spinner {
       margin: 35px auto;
@@ -141,7 +151,6 @@
 @media (max-width: 1140px) {
   .order {
     padding: 0 35px;
-    position: relative;
 
     .button-container {
       padding: 35px 0;
@@ -180,6 +189,11 @@
             font-size: $font-size-small;
           }
         }
+      }
+    }
+    .button-container {
+      p {
+        font-size: 1.8rem;
       }
     }
   }
