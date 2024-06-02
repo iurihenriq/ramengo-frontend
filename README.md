@@ -1,6 +1,6 @@
 # RamenGo Frontend
 
-Welcome to the RamenGo Frontend! This Angular project consumes the RamenGo API to provide users with a delightful experience of crafting custom ramen orders.
+Welcome to the RamenGo Frontend! This Angular project consumes the [RamenGo API](https://github.com/iurihenriq/ramengo-api) to provide users with a delightful experience of crafting custom ramen orders.
 
 ## Table of Contents
 
